@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Периферийные устройства компьютера и интерфейсы их подключения</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .step-title {
+            background: #f0f0f0;
+            padding: 15px;
+            border-left: 5px solid #667eea;
+            margin: 20px 0;
+            font-size: 1.4em;
+            color: #333;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .success-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .diagram {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            white-space: pre;
+            border: 2px solid #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tbody tr:hover {
+            background: #f5f5f5;
+            transition: 0.3s;
+        }
+
+        table tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .quiz-question {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .quiz-options li {
+            padding: 10px;
+            margin: 8px 0;
+            background: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .quiz-options li:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+
+        .details {
+            margin: 20px 0;
+        }
+
+        .details summary {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none;
+            user-select: none;
+        }
+
+        .details summary:hover {
+            background: #5568d3;
+        }
+
+        .details-content {
+            padding: 20px;
+            border: 2px solid #667eea;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .task-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .task-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        .badge-input {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .badge-output {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .badge-io {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+
+        .usb-connector {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 5px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            font-family: monospace;
+            background: #f0f0f0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            transition: width 0.5s;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+
+        .icon {
+            font-size: 1.5em;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .answer-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .scoring-table {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖥️ Периферийные устройства компьютера и интерфейсы их подключения</h1>
+            <p>Интерактивная пошаговая инструкция с теорией и практикой</p>
+        </header>
+
+        <div class="content">
+            <!-- ЧАСТЬ 1: ТЕОРИЯ -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">📘</span>
+                    <span>ЧАСТЬ 1. ТЕОРЕТИЧЕСКИЙ БЛОК</span>
+                </div>
+
+                <!-- Шаг 1 -->
+                <div class="step-title">Шаг 1. Что такое периферийные устройства?</div>
+
+                <div class="info-box">
+                    <h3>📌 Определение</h3>
+                    <p><strong>Периферийные устройства</strong> — это устройства, подключаемые к системному блоку компьютера и расширяющие его функциональные возможности. Они не входят в состав системного блока, но необходимы для ввода, вывода, обработки и хранения информации.</p>
+                </div>
+
+                <h3>Классификация по назначению</h3>
+                <div class="diagram">┌─────────────────────────────────────────────────────┐
+│           ПЕРИФЕРИЙНЫЕ УСТРОЙСТВА                   │
+├──────────────┬──────────────┬───────────────────────┤
+│  УСТРОЙСТВА  │  УСТРОЙСТВА  │  УСТРОЙСТВА           │
+│    ВВОДА     │   ВЫВОДА     │  ВВОДА-ВЫВОДА         │
+│              │              │  (комбинированные)    │
+├──────────────┼──────────────┼───────────────────────┤
+│ • Клавиатура │ • Монитор    │ • Сенсорный экран     │
+│ • Мышь       │ • Принтер    │ • МФУ                 │
+│ • Сканер     │ • Колонки    │ • Внешний HDD/SSD     │
+│ • Микрофон   │ • Наушники   │ • Флеш-накопитель     │
+│ • Веб-камера │ • Проектор   │ • Модем               │
+│ • Джойстик   │ • Плоттер    │ • Сетевое хранилище   │
+│ • Граф.план- │              │ • Гарнитура           │
+│   шет        │              │   (микрофон+наушники) │
+└──────────────┴──────────────┴───────────────────────┘</div>
+
+                <div class="success-box">
+                    <h4>💡 Запомните!</h4>
+                    <p><strong>Устройства ввода</strong> — передают информацию ОТ пользователя К компьютеру</p>
+                    <p><strong>Устройства вывода</strong> — передают информацию ОТ компьютера К пользователю</p>
+                    <p><strong>Устройства ввода-вывода</strong> — работают в обоих направлениях</p>
+                </div>
+
+                <!-- Шаг 2 -->
+                <div class="step-title">Шаг 2. Интерфейсы подключения</div>
+
+                <div class="info-box">
+                    <h3>🔌 Что такое интерфейс?</h3>
+                    <p><strong>Интерфейс подключения</strong> — это совокупность разъёмов (портов), кабелей и правил (протоколов) обмена данными между периферийным устройством и компьютером.</p>
+                </div>
+
+                <h3>Проводные интерфейсы</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Интерфейс</th>
+                            <th>Тип разъёма</th>
+                            <th>Скорость передачи</th>
+                            <th>Типичные устройства</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>USB 2.0</strong></td>
+                            <td>USB Type-A, Type-B, Mini, Micro</td>
+                            <td>до 480 Мбит/с</td>
+                            <td>Мышь, клавиатура, флешка, принтер</td>
+                        </tr>
+                        <tr>
+                            <td><strong>USB 3.0 / 3.1 / 3.2</strong></td>
+                            <td>USB Type-A (синий), Type-C</td>
+                            <td>до 5–20 Гбит/с</td>
+                            <td>Внешние HDD/SSD, веб-камеры HD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>USB Type-C</strong></td>
+                            <td>Type-C (универсальный)</td>
+                            <td>до 40 Гбит/с (USB4)</td>
+                            <td>Смартфоны, мониторы, док-станции</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HDMI</strong></td>
+                            <td>HDMI Type A, Mini, Micro</td>
+                            <td>до 48 Гбит/с (HDMI 2.1)</td>
+                            <td>Мониторы, проекторы, телевизоры</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DisplayPort</strong></td>
+                            <td>DP, Mini DP</td>
+                            <td>до 77.4 Гбит/с (DP 2.0)</td>
+                            <td>Мониторы (особенно игровые)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>VGA (D-Sub)</strong></td>
+                            <td>15-pin D-Sub</td>
+                            <td>Аналоговый сигнал</td>
+                            <td>Старые мониторы, проекторы</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DVI</strong></td>
+                            <td>DVI-I, DVI-D, DVI-A</td>
+                            <td>до 9.9 Гбит/с</td>
+                            <td>Мониторы (устаревает)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ethernet (RJ-45)</strong></td>
+                            <td>RJ-45</td>
+                            <td>100 Мбит/с – 10 Гбит/с</td>
+                            <td>Сетевое подключение</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3.5 мм Jack</strong></td>
+                            <td>Mini-Jack TRS/TRRS</td>
+                            <td>Аналоговый</td>
+                            <td>Наушники, микрофон, колонки</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PS/2</strong></td>
+                            <td>6-pin Mini-DIN</td>
+                            <td>—</td>
+                            <td>Клавиатура (фиолет.), мышь (зелён.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thunderbolt 3/4</strong></td>
+                            <td>Type-C</td>
+                            <td>до 40 Гбит/с</td>
+                            <td>Профессиональное оборудование</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Беспроводные интерфейсы</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Интерфейс</th>
+                            <th>Дальность</th>
+                            <th>Скорость</th>
+                            <th>Типичные устройства</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Bluetooth</strong></td>
+                            <td>до 10–100 м</td>
+                            <td>до 50 Мбит/с (BT 5.0)</td>
+                            <td>Наушники, мышь, клавиатура, колонки</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wi-Fi</strong></td>
+                            <td>до 50–100 м</td>
+                            <td>до 9.6 Гбит/с (Wi-Fi 6)</td>
+                            <td>Принтеры, сетевые накопители</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Инфракрасный (IrDA)</strong></td>
+                            <td>до 1 м</td>
+                            <td>до 16 Мбит/с</td>
+                            <td>Пульты ДУ (устарел)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NFC</strong></td>
+                            <td>до 10 см</td>
+                            <td>424 Кбит/с</td>
+                            <td>Бесконтактные считыватели</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RF (радиоканал 2.4 ГГц)</strong></td>
+                            <td>до 10 м</td>
+                            <td>—</td>
+                            <td>Беспроводные мыши/клавиатуры с USB-донглом</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Шаг 3 -->
+                <div class="step-title">Шаг 3. Подробнее о ключевых интерфейсах</div>
+
+                <h3>🔵 USB — Universal Serial Bus</h3>
+                <div class="diagram">Эволюция USB:
+
+USB 1.0 (1996) ──► USB 2.0 (2000) ──► USB 3.0 (2008) ──► USB 3.1 (2013) ──► USB 3.2 (2017) ──► USB4 (2019)
+  1.5 Мбит/с         480 Мбит/с        5 Гбит/с          10 Гбит/с          20 Гбит/с         40 Гбит/с</div>
+
+                <h4>Типы разъёмов USB:</h4>
+                <div class="grid-3">
+                    <div class="usb-connector">Type-A<br>█████<br>Компьютер</div>
+                    <div class="usb-connector">Type-B<br>██<br>Принтер</div>
+                    <div class="usb-connector">Mini-USB<br>███<br>Старые устройства</div>
+                    <div class="usb-connector">Micro-USB<br>████<br>Смартфоны</div>
+                    <div class="usb-connector">Type-C<br>════<br>Универсальный</div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>👁️ Как отличить USB 2.0 от USB 3.0 визуально?</h4>
+                    <ul>
+                        <li>USB 2.0 — <strong>чёрный</strong> или белый пластик внутри разъёма</li>
+                        <li>USB 3.0 — <strong>синий</strong> пластик внутри разъёма</li>
+                        <li>USB 3.1 Gen 2 — иногда <strong>бирюзовый</strong> (teal)</li>
+                    </ul>
+                </div>
+
+                <h3>🖥️ Видеоинтерфейсы</h3>
+                <div class="diagram">Качество и актуальность:
+
+VGA ──────► DVI ──────► HDMI ──────► DisplayPort
+(устарел)   (устаревает)  (массовый)    (профессиональный)
+аналоговый   цифровой     цифровой +    цифровой +
+                          аудио         аудио</div>
+
+                <div class="info-box">
+                    <strong>Важное отличие:</strong> HDMI и DisplayPort передают <strong>и видео, и аудио</strong> по одному кабелю. VGA и DVI передают <strong>только видео</strong>.
+                </div>
+
+                <!-- Шаг 4 -->
+                <div class="step-title">Шаг 4. Устаревшие интерфейсы (для общего развития)</div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Интерфейс</th>
+                            <th>Описание</th>
+                            <th>Что подключали</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>COM-порт (RS-232)</strong></td>
+                            <td>Последовательный порт, 9-pin</td>
+                            <td>Модемы, мыши</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LPT-порт (Centronics)</strong></td>
+                            <td>Параллельный порт, 25-pin</td>
+                            <td>Принтеры, сканеры</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PS/2</strong></td>
+                            <td>6-pin круглый разъём</td>
+                            <td>Клавиатура (фиолет.), мышь (зелён.)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FireWire (IEEE 1394)</strong></td>
+                            <td>Последовательный высокоскоростной</td>
+                            <td>Видеокамеры, внешние HDD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SCSI</strong></td>
+                            <td>Параллельный интерфейс</td>
+                            <td>Серверные HDD, сканеры</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Game-порт</strong></td>
+                            <td>15-pin</td>
+                            <td>Джойстики, MIDI-устройства</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="success-box">
+                    <strong>💡 Почему это важно?</strong> На практике вы можете столкнуться со старым оборудованием. Для подключения устаревших устройств к современным компьютерам используются <strong>переходники (адаптеры)</strong>.
+                </div>
+            </div>
+
+            <!-- ЧАСТЬ 2: ТЕСТ -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">✅</span>
+                    <span>ЧАСТЬ 2. ТЕСТ ДЛЯ САМОПРОВЕРКИ</span>
+                </div>
+
+                <div class="warning-box">
+                    <strong>Инструкция:</strong> Ответьте на вопросы, запишите ответы в тетрадь (или в отдельный документ). После выполнения сверьтесь с ответами в конце теста.
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Вопрос 1. К какой группе периферийных устройств относится сканер?</h4>
+                    <ul class="quiz-options">
+                        <li>а) Устройство вывода</li>
+                        <li>б) Устройство ввода</li>
+                        <li>в) Устройство ввода-вывода</li>
+                        <li>г) Не является периферийным устройством</li>
+                    </ul>
+                    <input type="text" class="answer-input" placeholder="Введите ваш ответ (а, б, в или г)">
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Вопрос 2. Какой цвет пластика внутри разъёма обычно указывает на USB 3.0?</h4>
+                    <ul class="quiz-options">
+                        <li>а) Чёрный</li>
+                        <li>б) Белый</li>
+                        <li>в) Синий</li>
+                        <li>г) Красный</li>
+                    </ul>
+                    <input type="text" class="answer-input" placeholder="Введите ваш ответ (а, б, в или г)">
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Вопрос 3. Какой интерфейс передаёт одновременно видео И аудио сигнал?</h4>
+                    <ul class="quiz-options">
+                        <li>а) VGA</li>
+                        <li>б) DVI</li>
+                        <li>в) HDMI</li>
+                        <li>г) PS/2</li>
+                    </ul>
+                    <input type="text" class="answer-input" placeholder="Введите ваш ответ (а, б, в или г)">
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Вопрос 4. Для чего использовался LPT-порт?</h4>
+                    <ul class="quiz-options">
+                        <li>а) Подключение монитора</li>
+                        <li>б) Подключение принтера</li>
+                        <li>в) Подключение сетевого кабеля</li>
+                        <li>г) Подключение наушников</li>
+                    </ul>
+                    <input type="text" class="answer-input" placeholder="Введите ваш ответ (а, б, в или г)">
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Вопрос 5. МФУ (многофункциональное устройство) — это устройство:</h4>
+                    <ul class="quiz-options">
+                        <li>а) Только ввода</li>
+                        <li>б) Только вывода</li>
+                        <li>в) Ввода-вывода</li>
+                        <li>г) Не является периферийным</li>
+                    </ul>
+                    <input type="text" class="answer-input" placeholder="Введите ваш ответ (а, б, в или г)">
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Вопрос 6. Какой разъём USB является симметричным (можно вставлять любой стороной)?</h4>
+                    <ul class="quiz-options">
+                        <li>а) Type-A</li>
+                        <li>б) Type-B</li>
+                        <li>в) Micro-USB</li>
+                        <li>г) Type-C</li>
+                    </ul>
+                    <input type="text" class="answer-input" placeholder="Введите ваш ответ (а, б, в или г)">
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Вопрос 7. Максимальная скорость передачи данных USB 2.0 составляет:</h4>
+                    <ul class="quiz-options">
+                        <li>а) 12 Мбит/с</li>
+                        <li>б) 480 Мбит/с</li>
+                        <li>в) 5 Гбит/с</li>
+                        <li>г) 10 Гбит/с</li>
+                    </ul>
+                    <input type="text" class="answer-input" placeholder="Введите ваш ответ (а, б, в или г)">
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Вопрос 8. Какой беспроводной интерфейс чаще всего используется для подключения беспроводных наушников?</h4>
+                    <ul class="quiz-options">
+                        <li>а) Wi-Fi</li>
+                        <li>б) NFC</li>
+                        <li>в) Bluetooth</li>
+                        <li>г) IrDA</li>
+                    </ul>
+                    <input type="text" class="answer-input" placeholder="Введите ваш ответ (а, б, в или г)">
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Вопрос 9. Разъём RJ-45 используется для подключения:</h4>
+                    <ul class="quiz-options">
+                        <li>а) Монитора</li>
+                        <li>б) Телефонной линии</li>
+                        <li>в) Сетевого кабеля (Ethernet)</li>
+                        <li>г) Питания ноутбука</li>
+                    </ul>
+                    <input type="text" class="answer-input" placeholder="Введите ваш ответ (а, б, в или г)">
+                </div>
+
+                <div class="quiz-question">
+                    <h4>Вопрос 10. Какое устройство из перечисленных является устройством вывода?</h4>
+                    <ul class="quiz-options">
+                        <li>а) Микрофон</li>
+                        <li>б) Сканер</li>
+                        <li>в) Проектор</li>
+                        <li>г) Веб-камера</li>
+                    </ul>
+                    <input type="text" class="answer-input" placeholder="Введите ваш ответ (а, б, в или г)">
+                </div>
+
+                <details class="details">
+                    <summary>🔑 Ответы к тесту (откройте только после выполнения всех заданий!)</summary>
+                    <div class="details-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Вопрос</th>
+                                    <th>1</th>
+                                    <th>2</th>
+                                    <th>3</th>
+                                    <th>4</th>
+                                    <th>5</th>
+                                    <th>6</th>
+                                    <th>7</th>
+                                    <th>8</th>
+                                    <th>9</th>
+                                    <th>10</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Ответ</strong></td>
+                                    <td>б</td>
+                                    <td>в</td>
+                                    <td>в</td>
+                                    <td>б</td>
+                                    <td>в</td>
+                                    <td>г</td>
+                                    <td>б</td>
+                                    <td>в</td>
+                                    <td>в</td>
+                                    <td>в</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Критерии оценивания:</h4>
+                        <ul>
+                            <li>9–10 правильных — ⭐ «Отлично»</li>
+                            <li>7–8 правильных — 👍 «Хорошо»</li>
+                            <li>5–6 правильных — 📖 «Удовлетворительно, перечитайте теорию»</li>
+                            <li>Менее 5 — 🔄 «Изучите материал заново и пройдите тест повторно»</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+            <!-- ЧАСТЬ 3: ПРАКТИКА -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">🔧</span>
+                    <span>ЧАСТЬ 3. ПРАКТИЧЕСКИЕ ЗАДАНИЯ</span>
+                </div>
+
+                <!-- Задание 1 -->
+                <div class="task-card">
+                    <h3>Практическое задание 1. «Заполни таблицу периферийных устройств»</h3>
+                    
+                    <div class="info-box">
+                        <strong>Инструкция:</strong> Перед вами таблица с названиями периферийных устройств. Вам необходимо заполнить <strong>все пустые ячейки</strong>. Перерисуйте таблицу в тетрадь или создайте документ Word/Google Docs.
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Устройство</th>
+                                <th>Тип (ввод / вывод / ввод-вывод)</th>
+                                <th>Интерфейс подключения (проводной)</th>
+                                <th>Возможен ли беспроводной вариант?</th>
+                                <th>Назначение устройства</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Клавиатура</td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Лазерный принтер</td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Монитор</td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Веб-камера</td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Графический планшет</td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                                <td><input type="text" class="answer-input" placeholder="Заполните"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="text-align: center; background: #f0f0f0;">
+                                    <em>...продолжите таблицу для устройств 6-15 по аналогии...</em>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <details class="details">
+                        <summary>▶ Эталон для проверки (нажмите после выполнения)</summary>
+                        <div class="details-content">
+                            <p><strong>Пример заполнения для устройства №1 (Клавиатура):</strong></p>
+                            <ul>
+                                <li><strong>Тип:</strong> Ввод</li>
+                                <li><strong>Интерфейс:</strong> USB (Type-A), PS/2</li>
+                                <li><strong>Беспроводной:</strong> Да — Bluetooth, RF 2.4 ГГц</li>
+                                <li><strong>Назначение:</strong> Ввод текстовой информации и команд</li>
+                            </ul>
+                            <p><em>Аналогично заполните для остальных 14 устройств, используя информацию из теоретической части.</em></p>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Задание 2 -->
+                <div class="task-card">
+                    <h3>Практическое задание 2. «Найди и опознай интерфейс»</h3>
+                    
+                    <div class="info-box">
+                        <strong>Инструкция:</strong> Для каждого интерфейса из списка найдите в интернете <strong>фотографию разъёма (порта)</strong> и <strong>фотографию кабеля/штекера</strong>. Вставьте фото в документ, подпишите.
+                    </div>
+
+                    <h4>Список интерфейсов для поиска:</h4>
+                    <ol>
+                        <li>USB Type-A</li>
+                        <li>USB Type-C</li>
+                        <li>HDMI</li>
+                        <li>DisplayPort</li>
+                        <li>VGA (D-Sub)</li>
+                        <li>DVI</li>
+                        <li>RJ-45 (Ethernet)</li>
+                        <li>3.5 мм Jack</li>
+                        <li>PS/2</li>
+                        <li>Thunderbolt 3/4</li>
+                    </ol>
+
+                    <p><strong>Требования к оформлению:</strong></p>
+                    <ul>
+                        <li>Фото должно быть чётким, разъём хорошо виден</li>
+                        <li>Под каждым фото — подпись с названием</li>
+                        <li>Столбец «Для чего используется» заполнить своими словами</li>
+                    </ul>
+                </div>
+
+                <!-- Задание 3 -->
+                <div class="task-card">
+                    <h3>Практическое задание 3. «Панель портов системного блока»</h3>
+                    
+                    <div class="info-box">
+                        <strong>Инструкция:</strong> Ниже представлена схема задней панели системного блока с пронумерованными разъёмами. Определите каждый разъём.
+                    </div>
+
+                    <div class="diagram">╔══════════════════════════════════════════════════════════════╗
+║  ЗАДНЯЯ ПАНЕЛЬ СИСТЕМНОГО БЛОКА                             ║
+╠══════════════════════════════════════════════════════════════╣
+║                                                              ║
+║   ┌──────┐  ┌──────┐                                        ║
+║   │  (1) │  │  (2) │     ← Два круглых разъёма              ║
+║   │  ○   │  │  ○   │       (один фиолетовый,                ║
+║   └──────┘  └──────┘       один зелёный)                    ║
+║                                                              ║
+║   ┌──────────────────────┐                                   ║
+║   │    (3)               │  ← Широкий трапециевидный         ║
+║   │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   │    разъём, 15 отверстий,         ║
+║   └──────────────────────┘    синий цвет                     ║
+║                                                              ║
+║   ┌────────────┐  ┌────────────┐  ┌────────────┐            ║
+║   │    (4)     │  │    (5)     │  │    (6)     │            ║
+║   │ ▓▓▓▓▓▓▓▓  │  │ ▓▓▓▓▓▓▓▓  │  │ ▓▓▓▓▓▓▓▓  │            ║
+║   └────────────┘  └────────────┘  └────────────┘            ║
+║   чёрный внутри   синий внутри    синий внутри              ║
+║                                                              ║
+║   ┌────────────────────────┐                                 ║
+║   │         (7)            │  ← Широкий разъём               ║
+║   │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  │    с «выступом» сбоку           ║
+║   └────────────────────────┘                                 ║
+║                                                              ║
+║   ┌────────────────┐                                         ║
+║   │      (8)       │  ← Широкий разъём                      ║
+║   │  ▓▓▓▓▓▓▓▓▓▓▓  │    трапециевидный                      ║
+║   └────────────────┘                                         ║
+║                                                              ║
+║   ┌──────┐                                                   ║
+║   │ (9)  │  ← Квадратный разъём                             ║
+║   │ ████ │    с защёлкой                                     ║
+║   └──────┘                                                    ║
+║                                                              ║
+║   ○ (10)  ○ (11)  ○ (12)   ← Три круглых маленьких          ║
+║   зелён.  голуб.  розов.     разъёма 3.5 мм                 ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝</div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>№ на схеме</th>
+                                <th>Название интерфейса/разъёма</th>
+                                <th>Какое устройство можно подключить</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>(1)</td>
+                                <td><input type="text" class="answer-input" placeholder="Ваш ответ"></td>
+                                <td><input type="text" class="answer-input" placeholder="Ваш ответ"></td>
+                            </tr>
+                            <tr>
+                                <td>(2)</td>
+                                <td><input type="text" class="answer-input" placeholder="Ваш ответ"></td>
+                                <td><input type="text" class="answer-input" placeholder="Ваш ответ"></td>
+                            </tr>
+                            <tr>
+                                <td>(3)</td>
+                                <td><input type="text" class="answer-input" placeholder="Ваш ответ"></td>
+                                <td><input type="text" class="answer-input" placeholder="Ваш ответ"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="text-align: center; background: #f0f0f0;">
+                                    <em>...продолжите до (12)...</em>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <details class="details">
+                        <summary>▶ Проверить свои ответы</summary>
+                        <div class="details-content">
+                            <table>
+                                <tr>
+                                    <td><strong>(1)</strong></td>
+                                    <td>PS/2 (фиолетовый)</td>
+                                    <td>Клавиатура</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>(2)</strong></td>
+                                    <td>PS/2 (зелёный)</td>
+                                    <td>Мышь</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>(3)</strong></td>
+                                    <td>VGA (D-Sub)</td>
+                                    <td>Монитор (аналоговый сигнал)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>(4)</strong></td>
+                                    <td>USB 2.0</td>
+                                    <td>Мышь, клавиатура, флешка, принтер</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>(5-6)</strong></td>
+                                    <td>USB 3.0</td>
+                                    <td>Внешний HDD, быстрая флешка</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>(7)</strong></td>
+                                    <td>DVI</td>
+                                    <td>Монитор (цифровой сигнал)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>(8)</strong></td>
+                                    <td>HDMI</td>
+                                    <td>Монитор, телевизор, проектор</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>(9)</strong></td>
+                                    <td>RJ-45 (Ethernet)</td>
+                                    <td>Сетевой кабель</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>(10)</strong></td>
+                                    <td>3.5 мм (зелёный - Line Out)</td>
+                                    <td>Колонки, наушники</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>(11)</strong></td>
+                                    <td>3.5 мм (голубой - Line In)</td>
+                                    <td>Внешний аудиоисточник</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>(12)</strong></td>
+                                    <td>3.5 мм (розовый - Mic)</td>
+                                    <td>Микрофон</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Задание 4 -->
+                <div class="task-card">
+                    <h3>Практическое задание 4. «Подбери подключение»</h3>
+                    
+                    <div class="info-box">
+                        <strong>Инструкция:</strong> Перед вами описание ситуации. Определите, <strong>какой интерфейс и кабель</strong> нужно использовать. Если нужен переходник — укажите какой.
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Ситуация 1:</h4>
+                        <p>У вас новый монитор с разъёмами HDMI и DisplayPort. На видеокарте компьютера есть выходы: VGA, DVI, HDMI. Какой кабель вы используете?</p>
+                        <textarea class="answer-input" rows="3" placeholder="Введите ваш развёрнутый ответ"></textarea>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Ситуация 2:</h4>
+                        <p>Вы купили беспроводную мышь. В комплекте — маленький USB-приёмник (донгл). Компьютер стоит под столом, все USB-порты на задней панели заняты. Как подключить мышь?</p>
+                        <textarea class="answer-input" rows="3" placeholder="Введите ваш развёрнутый ответ"></textarea>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Ситуация 3:</h4>
+                        <p>Нужно подключить старый принтер с разъёмом LPT (параллельный порт) к современному ноутбуку, где есть только USB Type-A и USB Type-C. Что делать?</p>
+                        <textarea class="answer-input" rows="3" placeholder="Введите ваш развёрнутый ответ"></textarea>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Ситуация 4:</h4>
+                        <p>Требуется подключить к ноутбуку одновременно: внешний монитор, внешний жёсткий диск, проводную мышь и Ethernet-кабель. На ноутбуке только 2 порта USB Type-C и разъём 3.5 мм. Как решить задачу?</p>
+                        <textarea class="answer-input" rows="3" placeholder="Введите ваш развёрнутый ответ"></textarea>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Ситуация 5:</h4>
+                        <p>Вам нужно перенести файл размером 50 ГБ с одного компьютера на другой. У вас есть флешка USB 2.0 на 64 ГБ и внешний SSD с USB 3.1 на 256 ГБ. Какое устройство выбрать и почему?</p>
+                        <textarea class="answer-input" rows="3" placeholder="Введите ваш развёрнутый ответ"></textarea>
+                    </div>
+                </div>
+
+                <!-- Задание 5 -->
+                <div class="task-card">
+                    <h3>Практическое задание 5. «Составь спецификацию рабочего места»</h3>
+                    
+                    <div class="info-box">
+                        <strong>Инструкция:</strong> Вам поручено подготовить спецификацию (перечень оборудования) для оснащения рабочего места. Выберите <strong>один из вариантов</strong>:
+                    </div>
+
+                    <div class="grid-2">
+                        <div style="background: #e3f2fd; padding: 15px; border-radius: 8px;">
+                            <h4>Вариант А</h4>
+                            <p>Рабочее место офисного сотрудника</p>
+                        </div>
+                        <div style="background: #f3e5f5; padding: 15px; border-radius: 8px;">
+                            <h4>Вариант Б</h4>
+                            <p>Рабочее место дизайнера/художника</p>
+                        </div>
+                        <div style="background: #e8f5e9; padding: 15px; border-radius: 8px;">
+                            <h4>Вариант В</h4>
+                            <p>Рабочее место для дистанционного обучения (студент)</p>
+                        </div>
+                        <div style="background: #fff3e0; padding: 15px; border-radius: 8px;">
+                            <h4>Вариант Г</h4>
+                            <p>Игровое рабочее место</p>
+                        </div>
+                    </div>
+
+                    <h4>Требования:</h4>
+                    <ul>
+                        <li>Минимум 6 устройств</li>
+                        <li>Должны быть устройства всех трёх типов (ввод, вывод, ввод-вывод)</li>
+                        <li>Минимум один беспроводной интерфейс</li>
+                        <li>Минимум два разных проводных интерфейса</li>
+                        <li>В столбце «Обоснование» — объяснить выбор интерфейса</li>
+                    </ul>
+                </div>
+
+                <!-- Задание 6 -->
+                <div class="task-card">
+                    <h3>Практическое задание 6. «Осмотр реального компьютера»</h3>
+                    
+                    <div class="warning-box">
+                        ⚠️ <strong>Выполняется при наличии доступа к компьютеру (в кабинете или дома)</strong>
+                    </div>
+
+                    <ol>
+                        <li>Осмотрите <strong>заднюю панель</strong> системного блока (или боковые панели ноутбука)</li>
+                        <li>Сфотографируйте панель с портами</li>
+                        <li>Заполните таблицу для каждого обнаруженного разъёма</li>
+                        <li>Подсчитайте общее количество портов каждого типа</li>
+                    </ol>
+
+                    <h4>Ответьте на вопросы:</h4>
+                    <ul>
+                        <li>Сколько USB-портов всего? Из них USB 3.0?</li>
+                        <li>Какие видеовыходы есть?</li>
+                        <li>Есть ли устаревшие порты (VGA, PS/2, COM, LPT)?</li>
+                        <li>Сколько устройств можно подключить одновременно?</li>
+                    </ul>
+                </div>
+
+                <!-- Задание 7 -->
+                <div class="task-card">
+                    <h3>Практическое задание 7. «Кроссворд: Интерфейсы и устройства»</h3>
+                    
+                    <div class="info-box">
+                        <strong>Инструкция:</strong> Разгадайте кроссворд. Все ответы связаны с темой занятия.
+                    </div>
+
+                    <h4>По вертикали (1):</h4>
+                    <p>Универсальная последовательная шина (аббревиатура англ., 3 буквы)</p>
+
+                    <h4>По горизонтали:</h4>
+                    <ol start="2">
+                        <li>Устройство для оцифровки бумажных документов (6 букв)</li>
+                        <li>Видеоинтерфейс, передающий аналоговый сигнал, 15-pin, синий разъём (3 буквы)</li>
+                        <li>Устройство для проецирования изображения на экран/стену (8 букв)</li>
+                        <li>Беспроводной интерфейс для подключения наушников, мыши и т.д. (9 букв)</li>
+                        <li>Порт для подключения сетевого кабеля — RJ-... (2 цифры)</li>
+                        <li>Периферийное устройство, объединяющее принтер, сканер и копир (3 буквы)</li>
+                        <li>Видеоинтерфейс, передающий цифровое видео и аудио, наиболее распространённый (4 буквы)</li>
+                    </ol>
+
+                    <div style="margin: 20px 0;">
+                        <input type="text" class="answer-input" placeholder="1 вертикаль (3 буквы)">
+                        <input type="text" class="answer-input" placeholder="2 (6 букв)">
+                        <input type="text" class="answer-input" placeholder="3 (3 буквы)">
+                        <input type="text" class="answer-input" placeholder="4 (8 букв)">
+                        <input type="text" class="answer-input" placeholder="5 (9 букв)">
+                        <input type="text" class="answer-input" placeholder="6 (2 цифры)">
+                        <input type="text" class="answer-input" placeholder="7 (3 буквы)">
+                        <input type="text" class="answer-input" placeholder="8 (4 буквы)">
+                    </div>
+
+                    <details class="details">
+                        <summary>▶ Проверить ответы на кроссворд</summary>
+                        <div class="details-content">
+                            <p><strong>По вертикали (1):</strong> USB</p>
+                            <p><strong>По горизонтали:</strong></p>
+                            <ol start="2">
+                                <li>СКАНЕР</li>
+                                <li>VGA</li>
+                                <li>ПРОЕКТОР</li>
+                                <li>BLUETOOTH</li>
+                                <li>45</li>
+                                <li>МФУ</li>
+                                <li>HDMI</li>
+                            </ol>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- ЧАСТЬ 4: КРИТЕРИИ ОЦЕНИВАНИЯ -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">📋</span>
+                    <span>ЧАСТЬ 4. КРИТЕРИИ ОЦЕНИВАНИЯ</span>
+                </div>
+
+                <div class="scoring-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Элемент</th>
+                                <th>Максимум баллов</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Тест (10 вопросов)</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>Задание 1 — Таблица устройств</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td>Задание 2 — Фото интерфейсов</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>Задание 3 — Панель портов</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>Задание 4 — Ситуации</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>Задание 5 — Спецификация рабочего места</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>Задание 6 — Осмотр реального компьютера</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>Задание 7 — Кроссворд</td>
+                                <td>5</td>
+                            </tr>
+                            <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: bold;">
+                                <td>ИТОГО</td>
+                                <td>80</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="margin-top: 30px;">Шкала перевода в оценку:</h3>
+                    <div class="grid-2" style="margin-top: 20px;">
+                        <div style="background: #4caf50; color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                            <h4>72–80 баллов</h4>
+                            <p style="font-size: 1.5em;">5 (отлично)</p>
+                        </div>
+                        <div style="background: #2196f3; color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                            <h4>56–71 балл</h4>
+                            <p style="font-size: 1.5em;">4 (хорошо)</p>
+                        </div>
+                        <div style="background: #ff9800; color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                            <h4>40–55 баллов</h4>
+                            <p style="font-size: 1.5em;">3 (удовлетворительно)</p>
+                        </div>
+                        <div style="background: #f44336; color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                            <h4>менее 40 баллов</h4>
+                            <p style="font-size: 1.5em;">2 (неудовлетворительно)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ЧАСТЬ 5: РЕФЛЕКСИЯ -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="icon">📝</span>
+                    <span>ЧАСТЬ 5. РЕФЛЕКСИЯ</span>
+                </div>
+
+                <div class="task-card">
+                    <p>После выполнения всех заданий ответьте на вопросы:</p>
+
+                    <div style="margin: 20px 0;">
+                        <h4>1. Какие интерфейсы вы знали до этого занятия, а какие узнали впервые?</h4>
+                        <textarea class="answer-input" rows="3" placeholder="Ваш ответ..."></textarea>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h4>2. Какой порт на вашем домашнем компьютере/ноутбуке вы раньше не могли опознать, а теперь можете?</h4>
+                        <textarea class="answer-input" rows="3" placeholder="Ваш ответ..."></textarea>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h4>3. С какими трудностями вы столкнулись при выполнении заданий?</h4>
+                        <textarea class="answer-input" rows="3" placeholder="Ваш ответ..."></textarea>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <h4>4. Оцените свой уровень знаний по теме по шкале от 1 до 10 (до занятия и после)</h4>
+                        <p>До занятия: <input type="number" min="1" max="10" class="answer-input" style="width: 100px;" placeholder="1-10"></p>
+                        <p>После занятия: <input type="number" min="1" max="10" class="answer-input" style="width: 100px;" placeholder="1-10"></p>
+                    </div>
+                </div>
+
+                <div class="success-box" style="text-align: center; font-size: 1.1em;">
+                    <strong>📄 Все задания сдаются преподавателю в виде одного документа (Word / Google Docs / распечатка) с подписанными фотографиями, заполненными таблицами и ответами на вопросы.</strong>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Интерактивное учебное пособие</p>
+            <p>Периферийные устройства компьютера и интерфейсы их подключения</p>
+        </footer>
+    </div>
+
+    <script>
+        // Простая интерактивность для выделения выбранных ответов
+        document.querySelectorAll('.quiz-options li').forEach(item => {
+            item.addEventListener('click', function() {
+                // Снимаем выделение с других элементов в этом вопросе
+                this.parentElement.querySelectorAll('li').forEach(li => {
+                    li.style.background = '#f9f9f9';
+                    li.style.fontWeight = 'normal';
+                });
+                // Выделяем выбранный вариант
+                this.style.background = '#c5e1a5';
+                this.style.fontWeight = 'bold';
+            });
+        });
+
+        // Анимация появления секций при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Прогресс-бар прокрутки
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            // Можно добавить прогресс-бар в header
+            if (!document.querySelector('.scroll-progress')) {
+                const progressBar = document.createElement('div');
+                progressBar.className = 'scroll-progress';
+                progressBar.style.cssText = 'position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%); z-index: 9999; transition: width 0.1s;';
+                document.body.prepend(progressBar);
+            }
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>
